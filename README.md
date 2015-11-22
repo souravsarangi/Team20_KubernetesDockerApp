@@ -1,0 +1,10 @@
+Cloud Computing Major Project for Monsoon2015
+
+A Kubernetes managed Docker container Based WebApp
+
+
+Created BY:
+201202101  UDYAN KHURANA
+201301014  SOURAV SARANGI
+201405571  VEERENDRA BIDARE
+201201181  RUPINDER SINGH KHOKHAR
