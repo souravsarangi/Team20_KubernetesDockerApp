@@ -1,0 +1,11 @@
+FROM ubuntu:14.04
+ENV http_proxy http://proxy.iiit.ac.in:8080
+ENV https_proxy https://proxy.iiit.ac.in:8080
+RUN apt-get update
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install python python-pip 
+ADD requirements.txt /tmp/requirements.txt
+RUN pip install -qr /tmp/requirements.txt
+ADD . /opt/webapp/
+WORKDIR /opt/webapp
+EXPOSE 5000
+CMD ["python", "app.py"]

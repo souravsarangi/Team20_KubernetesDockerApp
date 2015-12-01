@@ -1,0 +1,13 @@
+FROM ubuntu:14.04
+RUN cat /etc/resolv.conf
+RUN apt-get -yq update
+RUN apt-get -y --fix-missing install python 
+RUN apt-get -y --fix-missing install python-setuptools
+RUN apt-get install python-mysqldb
+RUN easy_install pip
+ADD requirements.txt /tmp/requirements.txt
+RUN pip install -qr /tmp/requirements.txt
+ADD . /opt/webapp/
+WORKDIR /opt/webapp
+EXPOSE 5000
+CMD ["python", "app.py"]
