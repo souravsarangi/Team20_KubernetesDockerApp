@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Strata by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='assets/css/main.css') }}">
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body id="top">
+
+		<!-- Header -->
+			<header id="header">
+				<a href="http://www.kubernetes.io" class="image avatar"><img src="{{ url_for('static',filename='assets/kube.png') }}" alt="" /></a>
+				<h1><strong><u>Student Database</strong></u><br/></h1><h5>A super simple responsive <br/>site for managing your database<br />
+				crafted by Cloud Team 20</h5>
+			</header>
+
+		<!-- Main -->
+			<div id="main">
+
+				<!-- One -->
+					<section id="one">
+						<header class="major">
+							<h2>Student DB</h2>
+						</header>
+						<!--<p>Use web portal to make your work super simple and super easy. Its docker based so even easier to port and use. Runs on Kubernetes cluster.</p>-->
+						<h1>Enter Your Name& Roll No</h1>
+<h2>(it will be updated in the list)</h2>
+<div class="row">
+<div class="8u 12u$(small)">
+	<form method="get" action="/fill">
+		<div class="row uniform 50%">
+			<div class="6u 12u$(xsmall)"><input type="text" name="name" id="name" placeholder="Name" /></div>
+			<div class="6u$ 12u$(xsmall)"><input type="text" name="rollno" id="rollno" placeholder="Roll No" /></div>
+	</form>
+	<ul class="actions">
+		<li><input type="submit" value="Update Database" /></li>
+	</ul>
+</div>
+
+
+
+
+					</section>
+
+
+				
+<!-- Three -->
+<section id="three">
+	<h2>Student List</h2>
+	<p>List of students currently in the database.</p>
+	<div class="row">
+		<div class="8u 12u$(small)">
+			<div class="row uniform 50%">
+				<div class="6u 12u$(xsmall)">Name</div><div class="6u$ 12u$(xsmall)">Roll Number</div><br/>
+				<span id="demo"></span>
+				<script>
+function loadDoc() {
+	var xhttp;
+	if (window.XMLHttpRequest) {
+		// code for modern browsers
+		xhttp = new XMLHttpRequest();
+	} else {
+		// code for IE6, IE5
+		xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xhttp.onreadystatechange = function() {
+		if (xhttp.readyState == 4 && xhttp.status == 200) {
+			document.getElementById("demo").innerHTML = xhttp.responseText;
+		}
+	};
+	xhttp.open("GET", "/show", true);
+	xhttp.send();
+}
+loadDoc();
+</script>
+
+			</div>
+			<ul class="actions">
+				<li><input type="submit" value="Send Message" /></li>
+			</ul>
+		</div>
+	</div>
+</section>
+
+				
+
+		<!-- Footer -->
+			<footer id="footer">
+				<ul class="icons">
+					<li><a href="https://twitter.com/saintlysourav" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="https://github.com/souravsarangi/Team20_KubernetesDockerApp" class="icon fa-github"><span class="label">Github</span></a></li>
+					<li><a href="http://www.slideshare.net/udyankhurana" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+					<li><a href="mailto:udyank@gmail.com" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Udyan and Sourav</li><li>Design: <a href="http://html5up.net">Udyan and Sourav</a></li>
+				</ul>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="{{ url_for('static',filename='assets/js/jquery.min.js') }}"></script>
+			<script src="{{ url_for('static',filename='assets/js/jquery.poptrox.min.js') }}"></script>
+			<script src="{{ url_for('static',filename='assets/js/skel.min.js') }}"></script>
+			<script src="{{ url_for('static',filename='assets/js/util.js')}}"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="{{ url_for('static',filename='assets/js/main.js')}}"></script>
+
+	</body>
+</html>

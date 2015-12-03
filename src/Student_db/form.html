@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<h1>Enter Your Name& Roll No</h1>
+<h2>(it will be updated in the list)</h2>
+<form action="/fill" method="GET">
+<input type="text" name="name" placeholder="name"/>
+<input type="text" name="rollno" placeholder="roll no"/>
+<input type="submit">
+</form>
+<p id="demo">Let AJAX change this text.</p>
+
+
+<script>
+demo.onclick(loadDoc());
+function loadDoc() {
+	var xhttp;
+	if (window.XMLHttpRequest) {
+		// code for modern browsers
+		xhttp = new XMLHttpRequest();
+	} else {
+		// code for IE6, IE5
+		xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xhttp.onreadystatechange = function() {
+		if (xhttp.readyState == 4 && xhttp.status == 200) {
+			document.getElementById("demo").innerHTML = xhttp.responseText;
+		}
+	};
+	xhttp.open("GET", "/show", true);
+	xhttp.send();
+}
+loadDoc();
+</script>
+</body>
+</html>
