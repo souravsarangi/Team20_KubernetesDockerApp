@@ -81,30 +81,31 @@ sudo /opt/kubernetes/bin/proxy --etcd_servers=http://127.0.0.1:4001 -logtostderr
 Open new terminal of CoreOS master and run kubernetes commands using kubecfg as shown below.
 To deploy and run a web app use following command
 ~~~ sh
-sudo /opt/kubernetes/bin/kubecfg -h http://127.0.0.1:8080 -c app.json create /pods
+sudo /opt/kubernetes/bin/kubecfg -h http://127.0.0.1:8080 -c web.json create /pods
 ~~~
-The file app.json has image details and content of file is 
+The file web.json has image details and content of file is 
 ~~~ sh
 {
-  "id: "app",
-  "desiredState: {
-    "manifest": {
-      "version": "v1beta1",
-      "id: "app",
-      "containers: [{
-    "name: "app",
-    "image: "udyank/studentdbapp",
-    "ports: [{
-      "containerPort": 80,
-      "hostPort": 80 
-    }]
-      }]
-    }
-  },
-  "labels: {
-    "name: "app"
-  }
+      "id": "web",
+      "desiredState": {
+        "manifest": {
+          "version": "v1beta1",
+          "id": "web",
+          "containers": [{
+        "name": "web",
+        "image": "udyank/studentdbapp",
+        "ports": [{
+          "containerPort": 80,
+          "hostPort": 80
+        }]
+          }]
+        }
+      },
+      "labels": {
+        "name": "web"
+      }
 }
+
 ~~~
 
 To see list of pods use following command 
