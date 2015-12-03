@@ -25,7 +25,7 @@ vagrant ssh master
 ~~~
 **NOTE:**
 - If proxy has to be set then set https_proxy, http_proxy and no_proxy in every terminal).
-- Also, when working behind a proxy, write: sudo HTTP_PROXY=<your proxy> [COMMAND], instead of sudo [COMMAND] for all 
+- Also, when working behind a proxy, write: sudo HTTP_PROXY=username@proxy:8080 [command], instead of sudo [command] for all 
   Docker or Kubernetes commands. 
 
 ####Method 1 (Docker)
@@ -33,14 +33,16 @@ In the CoreOS terminal,
 ~~~ sh
 sudo docker run -d -P udyank/studentdbapp
 ~~~
-This command will return a <>, which we will use as:
+This command will return a [container_code], which we will use as:
 ~~~ sh
-docker port <>
+docker port [container_code] 
 ~~~ 
-This will give us a mapping from virtual TCP port to actual IP and port (Default: localhost:32768)
-You have to do "ifconfig" to see the public ip of master's localhost (Default: 172.17.8.101)
-Now go to this IP (172.17.8.101:32768) to view the app. And we're done!!
-If we do the above on both node-01 and node-02 also, we can access the app from all three IPs.
+This will give us a mapping from virtual TCP port to actual IP and port (Default: localhost:32768). <br/>
+You have to do "ifconfig" to see the public ip of master's localhost (Default: 172.17.8.101). <br/>
+Now go to this IP (172.17.8.101:32768) to view the app. And we're done!! <br/>
+If we do the above on both node-01 and node-02 also, we can access the app from all three IPs. <br/>
+
+
 
 ####Method 2 (Kubernetes)
 In the CoreOS terminal, run the following commands in sequence: 
